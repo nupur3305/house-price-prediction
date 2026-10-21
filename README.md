@@ -41,6 +41,7 @@ The initial analysis includes:
 * Understanding numerical and categorical variables.
 
 **Dataset source:** House Prices – Advanced Regression Techniques(taken from kaggle)
+Source: Kaggle — House Prices: Advanced Regression Techniques
 Original dataset: Ames Housing Dataset, covering residential properties in Ames, Iowa.
 Target variable: SalePrice
 Problem type: Supervised Machine Learning — Regression
@@ -109,6 +110,7 @@ Suitable regression algorithms for experimentation include:
 * Decision Tree Regressor
 * Random Forest Regressor
 * Gradient Boosting Regressor
+* Extra tree regressor
 
 The final list should contain only the algorithms actually trained in this project. Models can be compared using the same train-test split and evaluation methodology.
 
@@ -124,10 +126,26 @@ Regression models can be evaluated using the following metrics:
 
 **Interpretation:** Lower MAE, MSE, and RMSE values generally indicate better predictive performance. A higher R² generally indicates a better fit, although it should be interpreted alongside the test-set results and other evaluation metrics.
 
+##Final Model: Gradient Boosting Regressor
+
+Based on the earlier model comparison, Gradient Boosting Regressor was the leading candidate for the final model.
+
+Model Configuration
+
+The following hyperparameters were used in the earlier experiment:
+
+Hyperparameter	Value	          Purpose
+n_estimators	   200	          Number of boosting stages (trees).
+learning_rate	   0.05	          Controls the contribution of each tree to the overall prediction.
+max_depth	        3	            Controls the maximum depth of individual trees.
+random_state	   42            	Helps make results reproducible.
 
 
-
-
+##Why Gradient Boosting?
+Sequential learning: Each boosting stage helps correct errors made by the existing ensemble.
+Non-linear relationships: It can capture complex relationships between property features and sale prices.
+Feature interactions: Decision trees can model interactions between different property characteristics.
+Predictive performance: In the earlier comparison, Gradient Boosting achieved the strongest reported RMSE and R² results among the listed models.
 
 
 ## Key Machine Learning Concepts Demonstrated
